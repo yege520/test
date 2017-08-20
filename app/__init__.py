@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -8,10 +9,29 @@ from config import basedir, ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
+=======
+# -*- coding:utf-8 -*-
+
+import os
+
+from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
+
+from flask.ext.login import LoginManager
+from flask.ext.openid import OpenID
+from config import basedir
+
+app = Flask(__name__)
+app.config.from_object('config')
+db=SQLAlchemy(app)
+
+#from app import views, models
+>>>>>>> e23ef868c1dc12df73fec87ef01c2e9b9fb62e81
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
 oid = OpenID(app, os.path.join(basedir, 'tmp'))
+<<<<<<< HEAD
 
 if not app.debug:
     import logging
@@ -35,3 +55,5 @@ if not app.debug:
 
 from app import views, models
 
+=======
+>>>>>>> e23ef868c1dc12df73fec87ef01c2e9b9fb62e81

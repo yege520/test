@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!flask/bin/python
+=======
+# -*- coding:utf-8 -*-
+>>>>>>> e23ef868c1dc12df73fec87ef01c2e9b9fb62e81
 import imp
 from migrate.versioning import api
 from app import db

@@ -8,12 +8,21 @@
   </head>
   <body>
     <div>Microblog:
+<<<<<<< HEAD
         <a href="{{ url_for('index') }}">Home</a>
         {% if g.user.is_authenticated() %}
         | <a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile</a>
         | <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
     </div>
+=======
+     <a href="{{ url_for('index') }}">Home</a>
+     {% if g.user.is_authenticated() %}
+     | <a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile</a>
+     | <a href="{{ url_for('logout') }}">Logout</a>
+     {% endif %}
+ </div>
+>>>>>>> e23ef868c1dc12df73fec87ef01c2e9b9fb62e81
     <hr>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -26,4 +35,8 @@
     {% endwith %}
     {% block content %}{% endblock %}
   </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> e23ef868c1dc12df73fec87ef01c2e9b9fb62e81

@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 *.pyc
 *.pyo
 app.db
 search.db
 flask
 
+=======
+build/
+*.pyc
+>>>>>>> e23ef868c1dc12df73fec87ef01c2e9b9fb62e81
