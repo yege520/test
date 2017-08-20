@@ -12,7 +12,7 @@ def load_user(id):
 @app.before_request
 def before_request():
     g.user = current_user
-    if g.user.is_authenticated():
+    if g.user.is_authenticated:
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
         db.session.commit()
@@ -32,13 +32,13 @@ def internal_error(error):
 def index():
     user = g.user
     posts = [
-        { 
-            'author': { 'nickname': 'John' }, 
-            'body': 'Beautiful day in Portland!' 
+        {
+            'author': { 'nickname': 'John' },
+            'body': 'Beautiful day in Portland!'
         },
-        { 
-            'author': { 'nickname': 'Susan' }, 
-            'body': 'The Avengers movie was so cool!' 
+        {
+            'author': { 'nickname': 'Susan' },
+            'body': 'The Avengers movie was so cool!'
         }
     ]
     return render_template('index.html',
@@ -49,13 +49,13 @@ def index():
 @app.route('/login', methods = ['GET', 'POST'])
 @oid.loginhandler
 def login():
-    if g.user is not None and g.user.is_authenticated():
+    if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
         return oid.try_login(form.openid.data, ask_for = ['nickname', 'email'])
-    return render_template('login.html', 
+    return render_template('login.html',
         title = 'Sign In',
         form = form,
         providers = app.config['OPENID_PROVIDERS'])
@@ -85,7 +85,7 @@ def after_login(resp):
 def logout():
     logout_user()
     return redirect(url_for('index'))
-    
+
 @app.route('/user/<nickname>')
 @login_required
 def user(nickname):
@@ -117,4 +117,3 @@ def edit():
         form.about_me.data = g.user.about_me
     return render_template('edit.html',
         form = form)
-    
