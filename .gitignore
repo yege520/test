@@ -1,0 +1,12 @@
+# 以'#'开始的行，被视为注释.  
+# Python:
+# *.py[cod]
+# *.so
+# *.egg
+# *.egg-info
+# dist
+# build
+#
+# # My configurations:
+# db.ini
+# deploy_key_rsa*.pyc
